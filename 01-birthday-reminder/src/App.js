@@ -4,16 +4,16 @@ import List from './List';
 function App() {
 
   const [people, setPeople] = useState(data);
-  const [isEmpty, setIsEmpty] = useState(false)
 
   return (
     <>
     <main>
-      <section className = "container">
-        <h3>{people.length} birthdays today</h3>
-        <List people = {people}/>
-        <button onClick={() => setPeople([])}> Clear All</button>
+      <section className="container">
+        <h1> {people.length} Birthdays today</h1>
+        <List people={people}/>
+        <button id = "clear-All" onClick={() => {setPeople([])}}>Clear All</button>
       </section>
+      
     </main>
     </>
   );

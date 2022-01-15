@@ -71,6 +71,14 @@ body {
   margin: 20px auto;
   margin-top: 0px;
 }
+
+.delete-btn:hover{
+  font-weight: bold;
+  font-size: 15px;
+  color : red;
+
+}
+
 .tour-info {
   display: flex;
   justify-content: space-between;
@@ -91,7 +99,7 @@ p {
   margin: 10px auto;
   background-color: var(--clr--light-blue);
   border: none;
-  height: 2em;
+  height: 3em;
   width: 10em;
   border-radius: 5px;
   text-transform: capitalize;
@@ -101,5 +109,13 @@ p {
   justify-content: center;
   align-items: center;
   color: white;
+  transition: all 0.5s ease-in-out;
+  
+}
+
+.btn:hover{
+  background: white;
+  border: 3px solid var(--clr--light-blue);
+  color: var(--clr--light-blue);
   
 }

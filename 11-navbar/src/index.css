@@ -230,3 +230,9 @@ nav {
     color: var(--clr-primary-7);
   }
 }
+
+.nav-myname {
+  color: rgb(101, 198, 231);
+  font-size: 25px;
+  margin-bottom: 1px;
+}

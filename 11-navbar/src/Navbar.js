@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <div className="nav-center">
       <div className="nav-header">
-        <img src= {logo} alt="logo"/>
+        <h1 className="nav-myname">Brayam Corral Flores</h1>
         <button className="nav-toggle" onClick={() => setIsShowLinks(!isShowLinks)}>
           <FaBars />
         </button>

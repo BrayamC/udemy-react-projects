@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { FaBars, FaTwitter } from 'react-icons/fa'
 import { links, social } from './data'
-import logo from './logo.svg'
 
 const Navbar = () => {
   
@@ -17,7 +16,7 @@ const Navbar = () => {
     if(isShowLinks){
       linksContainerRef.current.style.height = `${linksHeight}px`;
     } else {
-    linksContainerRef.current.style.height = '0px';
+      linksContainerRef.current.style.height = '0px';
     }
 
   }, [isShowLinks])

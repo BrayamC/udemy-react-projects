@@ -1,16 +1,9 @@
-.co-heading {
-    /* background-color: red; */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 1.2rem 0;
-}
 
 .co-heading h1 {
     margin: 1rem 1.5rem;
     letter-spacing: 0.1rem;
-
 }
+
 .co-heading input {
     border: none;
     height: 2.5rem;
@@ -31,22 +24,67 @@
 }
 
 
-.co-colors {
-    background-color: blue;
-    display: flex;
-     flex-wrap: wrap;
-
-
+.co-colors { /* display all colors on screen correctly*/
+    min-height: calc(100vh - 100px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(223.33px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(96px, 1fr));
 }
 
 .co-tile {
     border: 1px solid black;
     background-color: orange;
-    width: 12rem;
-    height: 15rem;
 
-    
 }
 
+/* larger screen */
+@media screen and (min-width: 800px) {
+.co-heading {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1.2rem 0;
+}
+}
 
+/* smaller screen */
+@media screen and (max-width: 800px) {
 
+    .co-heading {
+        /* background-color: red; */
+        
+        align-items: center;
+    }
+
+    .co-heading h1 {
+        margin: 1rem 1.5rem;
+        letter-spacing: 0.1rem;
+        font-size: 1.5rem;
+        margin: 1rem;
+        text-align: center;
+
+    }
+
+    .co-search {
+        display: flex;
+        justify-content: center;
+        /* background-color: red; */
+    }
+
+    .co-heading button {
+        border: none;
+        height: 2.5rem;
+        width: 4rem;
+        background-color: rgb(37, 162, 240);
+        color: white;
+        letter-spacing: 0.1rem;
+        font-size: 3vw;
+    }
+    .co-heading input {
+        border: none;
+        height: 2.5rem;
+        width: 10rem;
+    }
+
+}

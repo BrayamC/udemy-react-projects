@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Loading from './Loading'
-import Wonders from './Wonders'
+import Loading from './Components/Loading/Loading'
+import Wonders from './Components/Wonders/Wonders'
 import {data} from './data.jsx'
 
 function App() {

@@ -1,31 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import Loading from './Loading'
 import Tours from './Tours'
-import data from './data'
+import {data} from './data2'
 
-const url = 'https://course-api.com/react-tours-project'
 function App() {
 
   const [loading, setLoading] = useState(true);
   const [tours, setTours] = useState([]);
 
-  const removeTour = (id) => {
-    const newTours = tours.filter((tour) => {
-      if(tour.id !== id) return tour;
-    })
-    setTours(newTours);
-  }
-
   const fetchTours = async () => {
-    console.log("Fetching API data");
+    // console.log("Fetching API data");
     setLoading(true)
     try {
       //const response = await fetch(url); // returns data with other info
       //const tours = await response.json(); // get the data from the repsonse
-      const tours = data;
       setLoading(false);
-      setTours(tours);
-      console.log(tours);
+      setTours(data);
+      // console.log(data);
     } catch (err) {
       setLoading(false);
       console.log(err)
@@ -62,7 +53,7 @@ function App() {
 
   return (
     <main>
-      <Tours tours = {tours} removeTour = {removeTour}/>
+      <Tours tours = {tours} />
     </main>
   );
   

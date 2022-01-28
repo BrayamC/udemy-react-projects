@@ -5,7 +5,7 @@ const Tours = ({wonders}) => {
   return (
     <section>
         <div className="title">
-          <h2>Our Tours</h2>
+          <h2>World Wonders</h2>
           <div className="underline" />
         </div>
         <div>

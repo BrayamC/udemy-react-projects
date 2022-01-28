@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import Loading from './Loading'
-import Tours from './Tours'
-import {data} from './data2'
+import Wonders from './Wonders'
+import {data} from './data.jsx'
 
 function App() {
 
   const [loading, setLoading] = useState(true);
-  const [tours, setTours] = useState([]);
+  const [wonders, setWonders] = useState([]);
 
-  const fetchTours = async () => {
+  const fetchWonders = async () => {
     // console.log("Fetching API data");
     setLoading(true)
     try {
-      //const response = await fetch(url); // returns data with other info
-      //const tours = await response.json(); // get the data from the repsonse
       setLoading(false);
-      setTours(data);
+      setWonders(data);
       // console.log(data);
     } catch (err) {
       setLoading(false);
@@ -25,7 +23,7 @@ function App() {
   
   // only runs first render
   useEffect(() => {
-    fetchTours();
+    fetchWonders();
   }, []) //run this function if any variable in array changes 
 
   
@@ -37,23 +35,9 @@ function App() {
     );
   }
 
-  if(tours.length === 0){
-    return (
-      <>
-      <main>
-        <div className="title">
-          <h2>No tours left</h2>
-          <button className = "btn" onClick={fetchTours}>Refresh</button>
-        </div>
-      </main>
-      
-      </>
-    );
-  }
-
   return (
     <main>
-      <Tours tours = {tours} />
+      <Wonders wonders = {wonders} />
     </main>
   );
   

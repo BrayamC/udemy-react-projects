@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Tour = ({id, PictureLink, Type, Latitude,Longitude, Name, Location, WikipediaLink, BuildYear}) => {
+const Wonder = ({id, PictureLink, Type, Latitude,Longitude, Name, Location, WikipediaLink, BuildYear}) => {
 
 
   return (
     <section>
-        <article className="single-tour">
+        <article className="single-wonder">
           <img src={PictureLink} alt={Name}/>
           <footer>
               <h4 className="wonder-name">{Name}</h4>
@@ -13,9 +13,9 @@ const Tour = ({id, PictureLink, Type, Latitude,Longitude, Name, Location, Wikipe
               
               <a href={WikipediaLink}> <button className="btn">Learn More</button></a>
 
-              <section className="location"> 
-                <h4 className="wonder-Location">{Location}</h4>
-                <h4 className="wonder-xy">{Latitude}, {Longitude}</h4>
+              <section className="wonder-location"> 
+                <h4>{Location}</h4>
+                <h4>{Latitude}, {Longitude}</h4>
               </section>
             
           </footer>
@@ -24,4 +24,4 @@ const Tour = ({id, PictureLink, Type, Latitude,Longitude, Name, Location, Wikipe
   );
 };
 
-export default Tour;
+export default Wonder;

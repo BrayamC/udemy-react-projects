@@ -3,7 +3,47 @@ import people from './data';
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
 
 const Review = () => {
-  return <h2>review component</h2>;
+  const [index, setIndex] = useState(0);
+  const {name, job, image, text} = people[index];
+
+  const prevPerson = () => {
+    if(index > 0)
+      setIndex(index-1);
+    else
+      setIndex(people.length - 1);
+  }
+  const nextPerson= () => {
+    if(index >= people.length-1){
+      setIndex(0)
+    } else {
+      setIndex(index+1);
+    }
+  }
+  const randomPerson = () => {
+    setIndex(Math.floor(Math.random() * people.length));
+  }
+  return (
+    <article>
+      <div className = "img-container">
+        <img src={image} alt={name} className='person-img'/>
+        <span className = 'quote-icon'>
+          <FaQuoteRight />
+        </span>
+      </div>
+      <h4 className = "author">{name}</h4>
+      <p className='job'>{job}</p>
+      <p className="info">{text}</p>
+      <div className = "button-container">
+        <button className = 'prev-btn' onClick={() => prevPerson()}>
+          <FaChevronLeft />
+        </button>
+        <button className = 'next-btn' onClick={() => nextPerson()}>
+          <FaChevronRight />
+        </button>
+      </div>
+      <button className = 'random-btn' onClick={() => randomPerson()}> suprise me </button>
+    </article>
+  );
 };
 
 export default Review;

@@ -34,11 +34,12 @@ function App() {
   if(!loading){
     return (
       <main>
-        <section className="menu section">
+        <section className="menu">
           <div className="title">
             <h1> Our Menu </h1>
-            <div className="underline"></div>
+
           </div>
+          
           <Categories setOption = {setOption} options = {options}/>
           <Menu option = {option} menu = {menu}/>
         </section>

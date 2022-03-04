@@ -1,0 +1,19 @@
+REDUX -- "global useStates and functions"
+
+1. Create actions.js
+    - stores keywords to call a certain function
+2. reducer.js
+    - stores functions called by using keywords found in actions.js
+3. Wrap app
+    - <Provider store={store}> ... </Provider>
+4. Connect components
+    - import {connect} from "react-redux"
+    - const mapStateToProps = (state) => {
+        return {amount: state.amount} //prop to be used by current componenet
+      }
+    -function mapStateToProps(state){
+        return {amount: state.amount} //prop to be used by current componenet
+     }
+    - export default connect(mapStateToProps)(Navbar);
+
+-> default parameters ({propA = []})

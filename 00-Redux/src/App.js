@@ -5,7 +5,6 @@ import cartItems from "./cart-items";
 // redux
 import {createStore} from 'redux'
 import reducer from './reducer';
-
 import {Provider} from "react-redux"; //wrap app with provider to allow redux in all components
 
 //initialize store

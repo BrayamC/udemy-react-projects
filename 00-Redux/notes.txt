@@ -1,19 +1,81 @@
 REDUX -- "global useStates and functions"
 
+0. Initialize parent component
+    - see code
+
 1. Create actions.js
     - stores keywords to call a certain function
+    
 2. reducer.js
     - stores functions called by using keywords found in actions.js
+
 3. Wrap app
     - <Provider store={store}> ... </Provider>
+
 4. Connect components
     - import {connect} from "react-redux"
-    - const mapStateToProps = (state) => {
-        return {amount: state.amount} //prop to be used by current componenet
-      }
-    -function mapStateToProps(state){
-        return {amount: state.amount} //prop to be used by current componenet
-     }
-    - export default connect(mapStateToProps)(Navbar);
+        - const mapStateToProps = (state) => {
+            return {amount: state.amount} //prop to be used by current componenet
+        }
+        - export default connect(mapStateToProps)(Navbar);
+
+5. Get props in arguments like normal
+    - const CartContainer = ({ cart = [], total }) => { //cart & total come from redux (step 4)
+
+6. Get functions as props (dispatch)
+    const CartContainer = ({ dispatch }) => {} // props
+
+    -Call actions in reducer.js using following:
+    <button onClick={() => dispatch({type: CLEAR_CART})}></button>
+
 
 -> default parameters ({propA = []})
+
+
+
+==== Extra code ====
+0. Parent component
+import {createStore} from 'redux'
+import reducer from './reducer';
+import {Provider} from "react-redux"; //wrap app with provider to allow redux in all components
+
+//initialize store(prop)
+const initialStore = {
+  cart: cartItems,
+  total: 100,
+  amount: 5
+};
+const store = createStore(reducer, initialStore);
+
+function App() {
+  return (
+    <Provider store={store}>
+      <Navbar />
+      <CartContainer />
+    </Provider>
+  );
+}
+---------------------------------------------------------------------------------------
+1. actions.js
+export const DECREASE = "DECREASE";
+export const INCREASE = "INCREASE";
+export const REMOVE = "REMOVE";
+
+---------------------------------------------------------------------------------------
+2. reducer.js
+
+import {DECREASE, INCREASE, CLEAR_CART} from './actions'
+
+function reducer(state, action){
+    switch(action.type){
+        case CLEAR_CART:
+            return {...state, cart: []}; //updating props
+        case CLEAR_CART:
+            return {...state, cart: []}; //updating props
+        default:
+            return state; // if no action, return old state
+    }
+}
+
+export default reducer;
+---------------------------------------------------------------------------------------

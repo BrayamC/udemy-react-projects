@@ -14,7 +14,7 @@ REDUX -- "global useStates and functions"
 
 4. Connect components
     - import {connect} from "react-redux"
-        - const mapStateToProps = (state) => {
+        - const mapStateToProps = (state) => { //state -- redux props
             return {amount: state.amount} //prop to be used by current componenet
         }
         - export default connect(mapStateToProps)(Navbar);
@@ -22,12 +22,39 @@ REDUX -- "global useStates and functions"
 5. Get props in arguments like normal
     - const CartContainer = ({ cart = [], total }) => { //cart & total come from redux (step 4)
 
-6. Get functions as props (dispatch)
+6(bad way?). Get functions as props (dispatch)
     const CartContainer = ({ dispatch }) => {} // props
-
     -Call actions in reducer.js using following:
     <button onClick={() => dispatch({type: CLEAR_CART})}></button>
 
+6(better way)
+    const mapDispatchToProps = (dispatch) => {
+        return { *remove* : () => dispatch({type: REMOVE})}
+    }
+    - export default connect(mapStateToProps(or null), mapDispatchToProps)(Navbar);
+    - const Component = ({prop1, prop2, *remove*}) => {}
+
+    <button onClick={remove()}></button>
+
+6a.
+    - import actions
+    import {DECREASE, INCREASE, ...} from actions.js
+
+
+6b. Parameters in functions from redux | use action
+
+        function reducer(state, action){
+            switch(action.type){
+                case CLEAR_CART:
+                    if(action.payload ...)
+                        return {...state, cart: []};
+            }
+
+    - use ownProps to access props in component, create payload to send to reducer.js
+        const mapDispatchToProps = (dispatch, ownProps) => {
+            const {id} = ownProps;
+            return { remove: () => dispatch({type: REMOVE, payload: {id:id, ran: "abc"}})} 
+        }
 
 -> default parameters ({propA = []})
 

@@ -13,14 +13,29 @@ function reducer(state, action){
         case CLEAR_CART:
             return {...state, cart: []};
         case DECREASE:
-            console.log("DECREASING");
-            return state;
+            let tempCartDecrease = [];
+
+            if(action.payload.amount === 1){
+                tempCartDecrease = state.cart.filter((item) => item.id !== action.payload.id);
+            } else {
+                tempCartDecrease = state.cart.map((cartItem) => {
+                    if(cartItem.id === action.payload.id){
+                        cartItem = {...cartItem, amount:cartItem.amount-1};
+                    }
+                    return cartItem;
+                });
+            }
+            return {...state, cart:tempCartDecrease}
         case INCREASE:
-            console.log("INCREASING");
-            return state;
+            let tempCart = state.cart.map((cartItem) => {
+                if(cartItem.id === action.payload.id){
+                    cartItem = {...cartItem, amount:cartItem.amount+1};
+                }
+                return cartItem;
+            });
+            return {...state, cart:tempCart}
         case REMOVE:
-            console.log("REMOVE");
-            return state;
+            return {...state, cart:state.cart.filter((item) => item.id !== action.payload.id)};
         default:
             return state; // if no action, return old state
     }

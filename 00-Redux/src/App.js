@@ -6,7 +6,10 @@ import CartContainer from "./components/CartContainer";
 import {createStore} from 'redux'
 import reducer from './reducer';
 import {Provider} from "react-redux"; //wrap app with provider to allow redux in all components
-const store = createStore(reducer);
+const store = createStore(
+  reducer, 
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import { INCREASE, DECREASE, REMOVE, removeItem, increase, decrease } from "../actions";
+import {removeItem, increase, decrease } from "../actions";
 const CartItem = ({ img, title, price, amount, remove, increase, decrease }) => {
   return (
     <div className="cart-item">

@@ -62,17 +62,11 @@ REDUX -- "global useStates and functions"
 
 ==== Extra code ====
 0. Parent component
+// redux
 import {createStore} from 'redux'
 import reducer from './reducer';
 import {Provider} from "react-redux"; //wrap app with provider to allow redux in all components
-
-//initialize store(prop)
-const initialStore = {
-  cart: cartItems,
-  total: 100,
-  amount: 5
-};
-const store = createStore(reducer, initialStore);
+const store = createStore(reducer);
 
 function App() {
   return (
@@ -81,6 +75,7 @@ function App() {
       <CartContainer />
     </Provider>
   );
+}
 }
 ---------------------------------------------------------------------------------------
 1. actions.js
@@ -92,8 +87,9 @@ export const REMOVE = "REMOVE";
 2. reducer.js
 
 import {DECREASE, INCREASE, CLEAR_CART} from './actions'
+const initialStore = { cart: cartItems, total: 100, amount: 5};
 
-function reducer(state, action){
+function reducer(state = initialState, action){
     switch(action.type){
         case CLEAR_CART:
             return {...state, cart: []}; //updating props
@@ -106,3 +102,5 @@ function reducer(state, action){
 
 export default reducer;
 ---------------------------------------------------------------------------------------
+
+js: reduce,map

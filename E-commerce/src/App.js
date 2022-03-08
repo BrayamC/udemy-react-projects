@@ -2,8 +2,31 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
 
+import styled from 'styled-components'
+
+const Button = styled.button`
+  background: green;
+  color: white;
+`
+const Container = styled.div`
+  background:red;
+  color:white;
+  font-size: 1rem;
+  .hero {
+    font-size: 2rem;
+  }
+`
+
 function App() {
-  return <h4>comfy sloth starter</h4>
+  return (
+    <div>
+      <h4>comfy sloth starter</h4>
+      <Button>click me</Button>
+      <Container>
+        <div className = 'hero'>  Hello </div>
+      </Container>
+    </div>
+  )
 }
 
 export default App

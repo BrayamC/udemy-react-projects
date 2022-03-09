@@ -1,31 +1,38 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
-
-import styled from 'styled-components'
-
-const Button = styled.button`
-  background: green;
-  color: white;
-`
-const Container = styled.div`
-  background:red;
-  color:white;
-  font-size: 1rem;
-  .hero {
-    font-size: 2rem;
-  }
-`
+import {About, AuthWrapper, Checkout, Error, Home, Cart, PrivateRoute, Products, SingleProduct} from './pages'
 
 function App() {
   return (
-    <div>
-      <h4>comfy sloth starter</h4>
-      <Button>click me</Button>
-      <Container>
-        <div className = 'hero'>  Hello </div>
-      </Container>
-    </div>
+    <Router>
+      <Navbar />
+      <Sidebar />
+      <Switch>
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route exact path='/about'>
+          <About />
+        </Route>
+        <Route exact path='/cart'>
+          <Cart />
+        </Route>
+        <Route exact path='/products'>
+          <Products />
+        </Route>
+        <Route exact path='/products/:id' children={<SingleProduct />}>
+          <Products />
+        </Route>
+        <Route exact path='checkout'>
+          <Checkout />
+        </Route>
+        <Route exact path='*'>
+          <Error />
+        </Route>
+      </Switch>
+      <Footer />
+    </Router>
   )
 }
 

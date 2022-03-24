@@ -1,8 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs'
-const Stars = () => {
-  return <h4>stars</h4>
+const Stars = ({stars, reviews}) => {
+
+  const maxStars = 5
+  const starsArray = new Array(maxStars)
+  // Find all filled stars
+  for(let i = 0; i < Math.floor(stars); i++){
+    starsArray[i] = 'filled'
+  }
+  // Check if half star is needed
+  if(stars % 1 != 0){
+    starsArray[Math.floor(stars)] = 'half'
+  }
+  // Rest of stars are empty
+  for(let i = Math.ceil(stars); i < maxStars; i++){
+    starsArray[i] = 'empty'
+  }
+  return <Wrapper>
+    {
+      starsArray.map((star, idx) => {
+        return (
+          <span key = {idx}>
+            {
+             star === 'filled' ? <BsStarFill /> : (star === 'half' ? <BsStarHalf /> : <BsStar />)
+            }
+          </span>
+
+        )
+      })
+    }
+  </Wrapper>
 }
 
 const Wrapper = styled.div`

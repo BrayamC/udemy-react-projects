@@ -29,7 +29,7 @@ const filter_reducer = (state, action) => {
   if(action.type === UPDATE_SORT){
     return {...state, sort: action.payload}
   }
-  
+
   if(action.type === SORT_PRODUCTS){
     const {sort, filtered_products} = state
     let tempProducts = [...filtered_products]
@@ -58,7 +58,7 @@ const filter_reducer = (state, action) => {
     return {...state, filters:{...state.filters, [name]:value}}
   }
   else if(action.type === FILTER_PRODUCTS){
-    console.log('Filtering products')
+    // console.log('Filtering products')
     return {...state}
   }
 

@@ -54,7 +54,9 @@ const filter_reducer = (state, action) => {
   }
 
   else if(action.type === UPDATE_FILTERS){
+    
     const {name, value} = action.payload
+    console.log('UPDATE FILTERS/',name, ': ', value)
     return {...state, filters:{...state.filters, [name]:value}}
   }
   else if(action.type === FILTER_PRODUCTS){

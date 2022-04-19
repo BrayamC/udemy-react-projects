@@ -9,8 +9,8 @@ import {
 const cart_reducer = (state, action) => {
   if(action.type === ADD_TO_CART){
     const {id, color, amount, product} = action.payload
-    console.log("cart=reducer:", state)
-    console.log("id ", id)
+   // console.log("cart=reducer:", state)
+   // console.log("id ", id)
     const tempItem = state.cart.find((i) => i.id === id+color)
     if(tempItem) {
       const tempCart = state.cart.map((cartItem) => {

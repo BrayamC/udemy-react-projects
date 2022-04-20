@@ -10,6 +10,8 @@ import { useUserContext } from '../context/user_context'
 
 function Nav (){
   const {openSidebar} = useProductsContext()
+  const {myUser} = useUserContext()
+
   return (
     <NavContainer>
       <div className="nav-center">
@@ -29,6 +31,11 @@ function Nav (){
                 <Link to={url}>{text}</Link>
               </li>
             })
+          }
+          {
+            myUser && <li>
+              <Link to = '/ckechout'> checkout </Link>
+            </li>
           }
         </ul>
     </div>

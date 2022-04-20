@@ -7,7 +7,7 @@ import {
   CLEAR_CART,
   COUNT_CART_TOTALS,
 } from '../actions'
-import { createEvent } from '@testing-library/react'
+// import { createEvent } from '@testing-library/react'
 
 const getLocalStorage = () => {
   let cart = localStorage.getItem('cart')

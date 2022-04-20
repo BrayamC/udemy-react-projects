@@ -19,7 +19,7 @@ const products_reducer = (state, action) => {
     case GET_PRODUCTS_BEGIN:
       return {...state, products_loading: true}
     case GET_PRODUCTS_SUCCESS:
-      console.log(action.payload)
+      //console.log(action.payload)
       const featured_products = action.payload.filter(
         (product) => product.featured === true)
       return {

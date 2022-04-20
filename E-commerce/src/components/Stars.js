@@ -10,7 +10,7 @@ const Stars = ({stars, reviews}) => {
     starsArray[i] = 'filled'
   }
   // Check if half star is needed
-  if(stars % 1 != 0){
+  if(stars % 1 !== 0){
     starsArray[Math.floor(stars)] = 'half'
   }
   // Rest of stars are empty

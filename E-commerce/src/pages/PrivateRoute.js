@@ -7,10 +7,10 @@ import { useUserContext } from '../context/user_context';
 // sends user to home if they arent signed in
 const PrivateRoute = ({children, ...rest}) => {
 
-  const {myUser} = useUserContext()
+  const {user} = useAuth0()
 
   return <Route {...rest} render={() => {
-    return myUser ? children : <Redirect to='/'></Redirect>
+    return user ? children : <Redirect to='/'></Redirect>
   }}>
 
   </Route>;

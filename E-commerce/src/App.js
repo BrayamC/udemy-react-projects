@@ -6,6 +6,8 @@ import {About, AuthWrapper, Checkout, Error, Home, Cart, PrivateRoute, Products,
 
 function App() {
   return (
+    <AuthWrapper>
+
     <Router>
       <Navbar />
       <Sidebar />
@@ -34,6 +36,7 @@ function App() {
       </Switch>
       <Footer />
     </Router>
+    </AuthWrapper>
   )
 }
 

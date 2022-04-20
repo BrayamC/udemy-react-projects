@@ -8,4 +8,14 @@ import PrivateRoute from './PrivateRoute'
 import Products from './ProductsPage'
 import SingleProductPage from './SingleProductPage'
 
-export {About, AuthWrapper, Checkout, Error, Home, Cart, PrivateRoute, Products, SingleProductPage}
+export {
+    About, 
+    AuthWrapper, 
+    Checkout, 
+    Error, 
+    Home,
+    Cart, 
+    PrivateRoute, 
+    Products, 
+    SingleProductPage,
+}

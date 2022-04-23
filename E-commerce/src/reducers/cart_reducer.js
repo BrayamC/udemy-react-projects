@@ -36,7 +36,7 @@ const cart_reducer = (state, action) => {
         price: product.price,
         max: product.max
       }
-      console.log("Adding to CArt: " + newItem.id)
+      // console.log("Adding to CArt: " + newItem.id)
       return {...state, cart: [...state.cart, newItem]}
     }
   }
